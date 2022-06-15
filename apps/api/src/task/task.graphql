@@ -1,0 +1,63 @@
+enum TodoStatus {
+    new
+    cancelled
+    done
+}
+
+enum TaskPriority {
+    low
+    normal
+    high
+}
+
+type Todo {
+    id: ID!
+    title: String
+    content: String
+    status: TodoStatus
+}
+
+type Task {
+    id: ID!
+    title: String
+    todos: [Todo!]!
+    priority: TaskPriority
+}
+
+type Query {
+    getTasksList: [Task!]!
+}
+
+type Mutation {
+    task: TaskMutations
+}
+
+type TaskResponse {
+    task: Task
+    error: String
+}
+
+type TodoResponse {
+    todo: Todo
+    error: String
+}
+
+input TodoInput {
+    task_id: ID!
+    title: String
+    content: String
+}
+
+input TaskInput {
+    title: String
+    priority: String
+}
+
+type TaskMutations {
+    addTask(task: TaskInput!): TaskResponse!
+    delTask(taskId: ID!): TaskResponse!
+    setTaskPriority(taskId: ID!, taskPriority: String!): TaskResponse!
+    addTodo(todo: TodoInput!): TodoResponse!
+    delTodo(todoId: ID!): TodoResponse!
+    setTodoStatus(todoId: ID!, todoStatus: String!): TodoResponse!
+}
