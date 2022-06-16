@@ -21,9 +21,9 @@ const config: ConfigService = new ConfigService('./apps/api/.env');
       playground: config.get('APP_PLAYGROUND') !== 'no',
       installSubscriptionHandlers: true,
       tracing: true,
-      engine: {
-        apiKey: config.get('ENGINE_API_KEY'),
-      },
+      // engine: {
+      //   apiKey: config.get('ENGINE_API_KEY'),
+      // },
       fieldResolverEnhancers: ['interceptors'],
     }),
 

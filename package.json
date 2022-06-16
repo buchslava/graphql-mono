@@ -8,7 +8,7 @@
     "test": "nx test",
     "typings": "ts-node generate-typings.ts",
     "codegen": "graphql-codegen --config codegen.yml",
-    "db": "ts-node db.ts"
+    "db-init": "ts-node db-init.ts"
   },
   "private": true,
   "dependencies": {

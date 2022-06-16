@@ -20,7 +20,7 @@ export enum TaskPriority {
 }
 
 export class TodoInput {
-    task_id: string;
+    taskId: string;
     title?: Nullable<string>;
     content?: Nullable<string>;
 }
@@ -46,10 +46,14 @@ export class Task {
 
 export abstract class IQuery {
     abstract getTasksList(): Task[] | Promise<Task[]>;
+
+    abstract getTodosList(taskId: string): Todo[] | Promise<Todo[]>;
 }
 
 export abstract class IMutation {
     abstract task(): Nullable<TaskMutations> | Promise<Nullable<TaskMutations>>;
+
+    abstract todo(): Nullable<TodoMutations> | Promise<Nullable<TodoMutations>>;
 }
 
 export class TaskResponse {
@@ -66,6 +70,9 @@ export class TaskMutations {
     addTask: TaskResponse;
     delTask: TaskResponse;
     setTaskPriority: TaskResponse;
+}
+
+export class TodoMutations {
     addTodo: TodoResponse;
     delTodo: TodoResponse;
     setTodoStatus: TodoResponse;

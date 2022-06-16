@@ -26,10 +26,12 @@ type Task {
 
 type Query {
     getTasksList: [Task!]!
+    getTodosList(taskId: ID!): [Todo!]!
 }
 
 type Mutation {
     task: TaskMutations
+    todo: TodoMutations
 }
 
 type TaskResponse {
@@ -43,7 +45,7 @@ type TodoResponse {
 }
 
 input TodoInput {
-    task_id: ID!
+    taskId: ID!
     title: String
     content: String
 }
@@ -57,6 +59,9 @@ type TaskMutations {
     addTask(task: TaskInput!): TaskResponse!
     delTask(taskId: ID!): TaskResponse!
     setTaskPriority(taskId: ID!, taskPriority: String!): TaskResponse!
+}
+
+type TodoMutations {
     addTodo(todo: TodoInput!): TodoResponse!
     delTodo(todoId: ID!): TodoResponse!
     setTodoStatus(todoId: ID!, todoStatus: String!): TodoResponse!

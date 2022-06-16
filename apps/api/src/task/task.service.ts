@@ -11,15 +11,11 @@ export class TaskService {
     }
 
     public async getTaskById(taskId: number): Promise<TaskDto> {
-        return await this.db('task')
-            .first()
-            .where({ id: taskId });
+        return this.db('task').first().where({ id: taskId });
     }
 
     public async addTask(title: string, priority: string): Promise<number> {
-        return await this.db
-            .insert({ title, priority })
-            .into('task');
+        return this.db.insert({ title, priority }).into('task');
     }
 
     public async delTask(taskId: number): Promise<number> {

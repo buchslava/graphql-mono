@@ -1,9 +1,5 @@
 import { TaskService } from './task.service';
-import {
-    TaskMutations,
-    TaskInput,
-    TaskResponse,
-} from '../graphql.schema';
+import { TaskMutations, TaskInput, TaskResponse } from '../graphql.schema';
 import { Args, Mutation, ResolveProperty, Resolver } from '@nestjs/graphql';
 import { getTaskByDto } from './dto';
 
@@ -21,7 +17,6 @@ export class TaskMutationResolver {
 
     @ResolveProperty(() => TaskResponse)
     public async addTask(@Args('task') taskInput: TaskInput): Promise<TaskResponse> {
-        console.log(taskInput);
         try {
             const newTaskIds = await this.taskService.addTask(taskInput.title, taskInput.priority);
             const task = getTaskByDto(await this.taskService.getTaskById(newTaskIds[0]));

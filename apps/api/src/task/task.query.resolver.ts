@@ -1,8 +1,6 @@
 import { TaskService } from './task.service';
-import { Context, Args, Query, Resolver } from '@nestjs/graphql';
-import {
-    Task,
-} from '../graphql.schema';
+import { Query, Resolver } from '@nestjs/graphql';
+import { Task } from '../graphql.schema';
 import { getTaskByDto } from './dto';
 
 @Resolver()
