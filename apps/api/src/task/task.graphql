@@ -1,6 +1,6 @@
 enum TodoStatus {
     new
-    cancelled
+    canceled
     done
 }
 

@@ -124,7 +124,7 @@ export type TodoResponse = {
 };
 
 export enum TodoStatus {
-  Cancelled = 'cancelled',
+  Canceled = 'canceled',
   Done = 'done',
   New = 'new'
 }

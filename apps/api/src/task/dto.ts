@@ -28,8 +28,8 @@ export function getTodoByDto(d: TodoDto): Todo {
     if (d.status === 'new') {
         res.status = TodoStatus.new;
     }
-    if (d.status === 'cancelled') {
-        res.status = TodoStatus.cancelled;
+    if (d.status === 'canceled') {
+        res.status = TodoStatus.canceled;
     }
     if (d.status === 'done') {
         res.status = TodoStatus.done;

@@ -9,7 +9,7 @@
 /* eslint-disable */
 export enum TodoStatus {
     "new" = "new",
-    cancelled = "cancelled",
+    canceled = "canceled",
     done = "done"
 }
 

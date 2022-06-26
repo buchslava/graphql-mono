@@ -50,8 +50,8 @@ function TodosList(props: { newTodoId: string }) {
                                 )
                             }
                             {
-                                item.status !== 'cancelled' && (
-                                    <button onClick={() => { setStatus(item.id, 'cancelled') }}>cancel</button>
+                                item.status !== 'canceled' && (
+                                    <button onClick={() => { setStatus(item.id, 'canceled') }}>cancel</button>
                                 )
                             }
                             {
